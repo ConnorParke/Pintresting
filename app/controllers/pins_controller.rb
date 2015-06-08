@@ -21,7 +21,7 @@ class PinsController < ApplicationController
         redirect_to @pin, notice: 'Pin was successfully created.'
       else
         render :new 
-      end
+      #end
   end
 
   def update
@@ -29,13 +29,13 @@ class PinsController < ApplicationController
         redirect_to @pin, notice: 'Pin was successfully updated.'
       else
        render :edit 
-      end
+      #end
   end
 
   def destroy
-    @pin.destroy
-    redirect_to pins_url, notice: 'Pin was successfully destroyed.'
-    end
+      @pin.destroy
+      redirect_to pins_url, notice: 'Pin was successfully destroyed.'
+    #end
   end
 
   private
