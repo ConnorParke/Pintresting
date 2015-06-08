@@ -17,25 +17,24 @@ class PinsController < ApplicationController
 
   def create
     @pin = Pin.new(pin_params)
-      if @pin.save
-        redirect_to @pin, notice: 'Pin was successfully created.'
-      else
-        render :new 
-      #end
+    if @pin.save
+      redirect_to @pin, notice: 'Pin was successfully created.'
+    else
+      render action: 'new'
+    end
   end
 
   def update
-      if @pin.update(pin_params)
-        redirect_to @pin, notice: 'Pin was successfully updated.'
-      else
-       render :edit 
-      #end
+    if @pin.update(pin_params)
+      redirect_to @pin, notice: 'Pin was successfully updated.'
+    else
+      render action: 'edit'
+    end
   end
 
   def destroy
-      @pin.destroy
-      redirect_to pins_url, notice: 'Pin was successfully destroyed.'
-    #end
+    @pin.destroy
+    redirect_to pins_url
   end
 
   private
