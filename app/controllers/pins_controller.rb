@@ -45,7 +45,7 @@ class PinsController < ApplicationController
       @pin = Pin.find(params[:id])
     end
 
-    def correct_user
+  #define current_user or somethign
       @pin = current_user.pins.find_by(id: params[:id])
       redirect_to pins_path, notice: "Get your own pin, you ham sandwich!" if @pin.nil?
     end  
