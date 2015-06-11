@@ -14,13 +14,13 @@
       <% @pins.each do |pin| %>
         <tr>
           <th><%= image_tag pin.image.url(:medium) %></th>
-          <h5><%= pin.user.email if pin.user %></h5>
-          <h4>-<%= pin.description %>-</h4>
+          <h5>User's Email: <%= pin.user.email if pin.user %></h5>
+          <h4>"<%= pin.description %>"</h4>
           <h9><%= link_to 'Show', pin %></h9>                                      
-          <% if pin.user == current_user %>
+           <% if pin.user == current_user %>
           <h9><%= link_to 'Edit', edit_pin_path(pin) %></h9>
           <h9><%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Have mercy!' } %></h9>
-          <% end %>
+           <% end %>
         </tr>
       <% end %>
     </tbody>
