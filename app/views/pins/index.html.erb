@@ -1,7 +1,6 @@
-<div class="jumbotron">
-  <p id="notice"><%= notice %></p>
+<%= render 'pages/home' unless user_signed_in? %>
 
-  <h1>Pintresting</h1>
+  
 
  <div id="pins" class="transitions-enabled">
   <% @pins.each do |pin| %>
@@ -12,14 +11,19 @@
         <strong><%= pin.user.email if pin.user %></strong>
         <% if pin.user == current_user %>
           <div class="actions">
-            <%= link_to 'Edit', edit_pin_path(pin) %>
-            <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to edit_pin_path(pin) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
           </div>
         <% end %>
       </div>
     </div>
   <% end %>
-</div>
 
   <br>
   <% if user_signed_in? %>
