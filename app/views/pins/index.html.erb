@@ -32,3 +32,5 @@
     <h4> <%= link_to "Click here", new_user_session_path %> to create a pin! </h4>
   <% end %>
 </div>
+
+<%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
